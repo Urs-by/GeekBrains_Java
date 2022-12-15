@@ -35,7 +35,7 @@ public class task {
             } else {
                 System.out.print("Вы ввели неверное число");
             }
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             logger.info("Не верный формат данных!" + e.getMessage());
             logger.log(Level.WARNING, "ASDFGH");
         }
@@ -72,7 +72,7 @@ public class task {
 
     private static void write_file(String data) throws FileNotFoundException {
 
-        try (PrintWriter pw = new PrintWriter("src/main/resources/files/task3.txt")) {
+        try (PrintWriter pw = new PrintWriter("src/main/resources/files/task5.txt")) {
             pw.print(data);
         } catch (FileNotFoundException e) {
             logger.severe("FileNotFound" + e.getMessage());
