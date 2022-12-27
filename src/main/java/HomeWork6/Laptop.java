@@ -4,22 +4,22 @@ public class Laptop {
     private String company;
     private String product;
     private String typeName;
-    private Float inches;
+    private String inches;
     private String cpu;
     private Integer ramGb;
     private String opSys;
-    private Float weight;
+    private String weight;
 
     // инициализатор
     {
         company = null;
         product = null;
         typeName = null;
-        inches = 10.5F;
+        inches = null;
         cpu = null;
         ramGb = 4;
         opSys = null;
-        weight = 1.0F;
+        weight = null;
     }
 
     // конструктор
@@ -29,11 +29,11 @@ public class Laptop {
     public Laptop(String company,
                   String product,
                   String typeName,
-                  Float inches,
+                  String inches,
                   String cpu,
                   Integer ramGb,
                   String opSys,
-                  Float weight) {
+                  String weight) {
         this.company = company;
         this.product = product;
         this.typeName = typeName;
