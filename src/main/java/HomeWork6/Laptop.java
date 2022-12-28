@@ -1,70 +1,93 @@
 package HomeWork6;
 
 public class Laptop {
-    private String company;
     private String product;
-    private String typeName;
-    private String inches;
-    private String cpu;
+    private Float inches;
+    public String cpu;
     private Integer ramGb;
-    private String opSys;
-    private String weight;
+    private String memoryType;
+    private Integer romGb;
+    private Float weight;
+
 
     // инициализатор
     {
-        company = null;
         product = null;
-        typeName = null;
-        inches = null;
+        inches = 11.0f;
         cpu = null;
-        ramGb = 4;
-        opSys = null;
-        weight = null;
+        ramGb = 2;
+        memoryType = null;
+        romGb = 0;
+        weight = 0f;
+
     }
 
-    // конструктор
+    // конструкторы
     public Laptop() {
     }
 
-    public Laptop(String company,
-                  String product,
-                  String typeName,
-                  String inches,
-                  String cpu,
-                  Integer ramGb,
-                  String opSys,
-                  String weight) {
-        this.company = company;
+    public Laptop(String product, Float inches, String cpu, Integer ramGb, String memoryType, Integer romGb, Float weight) {
         this.product = product;
-        this.typeName = typeName;
         this.inches = inches;
         this.cpu = cpu;
         this.ramGb = ramGb;
-        this.opSys = opSys;
+        this.memoryType = memoryType;
+        this.romGb = romGb;
         this.weight = weight;
     }
 
+
     @Override
     public String toString() {
-        return String.format("Производитель: %s \n" +
-                "Продукт: %s \n" +
-                "Тип: %s \n" +
-                "Диагональ: %s \n" +
-                "Процессор:%s \n" +
-                "ОЗУ: %s  Гб\n" +
-                "Операционная система: %s \n" +
-                "Вес: %s гр.\n", company, product, typeName, inches, cpu, ramGb, opSys, weight);
+        return String.format("Производитель: %s , Диагональ: %s , Процессор: %s , ОЗУ: %s Гб, Жесткий диск: %s - %s Гб, Вес: %s кг.\n",
+                product, inches, cpu, ramGb, memoryType, romGb, weight);
     }
 
-    public void infoLaptop() {
-        System.out.printf("Производитель: %s \n" +
-                "Продукт: %s \n" +
-                "Тип: %s \n" +
-                "Диагональ: %s \n" +
-                "Процессор: %s \n" +
-                "ОЗУ : %s Гб\n" +
-                "Операционная система: %s \n" +
-                "Вес: %s гр.\n", company, product, typeName, inches, cpu, ramGb, opSys, weight);
+    public void InfoStringLaptop(String arg) {
+        if (filterProduct(arg) || filterMemory(arg))
+            System.out.printf("Производитель: %s , Диагональ: %s , Процессор: %s , ОЗУ: %s Гб, Жесткий диск: %s - %s Гб, Вес: %s кг.\n",
+                    product, inches, cpu, ramGb, memoryType, romGb, weight);
+    }
+
+    public void infoFloatLaptop(Float arg) {
+        if (filterInch(arg)) {
+            System.out.printf("Производитель: %s , Диагональ: %s , Процессор: %s , ОЗУ: %s Гб, Жесткий диск: %s - %s Гб, Вес: %s кг.\n",
+                    product, inches, cpu, ramGb, memoryType, romGb, weight);
+        }
+    }
+
+    public void infoRamLaptop(Integer arg) {
+        if (filterRam(arg)) {
+            System.out.printf("Производитель: %s , Диагональ: %s , Процессор: %s , ОЗУ: %s Гб, Жесткий диск: %s - %s Гб, Вес: %s кг.\n",
+                    product, inches, cpu, ramGb, memoryType, romGb, weight);
+        }
+    }
+
+    public void infoRomLaptop(Integer arg) {
+        if (filterRom(arg)) {
+            System.out.printf("Производитель: %s , Диагональ: %s , Процессор: %s , ОЗУ: %s Гб, Жесткий диск: %s - %s Гб, Вес: %s кг.\n",
+                    product, inches, cpu, ramGb, memoryType, romGb, weight);
+        }
+    }
+
+    private boolean filterProduct(String arg) {
+        return product.equals(arg);
+    }
+
+    private boolean filterMemory(String arg) {
+        return memoryType.equals(arg);
+    }
+
+    private boolean filterInch(Float arg) {
+        return inches >= arg;
+    }
+
+    private boolean filterRam(Integer arg) {
+        return ramGb >= arg;
+    }
+
+    private boolean filterRom(Integer arg) {
+        return romGb >= arg;
     }
 
 }
